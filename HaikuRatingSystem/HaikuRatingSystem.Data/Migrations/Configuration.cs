@@ -28,7 +28,7 @@ namespace HaikuRatingSystem.Data.Migrations
             }
             if (!context.Ratings.Any())
             {
-                context.Ratings.Add(new Rating() { Haiku = simpleHaiku, User = simpleUser, RatingValue = 4});
+                context.Ratings.Add(new Rating() { Haiku = simpleHaiku, RatingValue = 4});
             }
             context.SaveChanges();
         }

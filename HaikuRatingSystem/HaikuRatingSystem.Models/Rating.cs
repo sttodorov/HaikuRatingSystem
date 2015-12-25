@@ -5,15 +5,12 @@
 
     public class Rating
     {
+        public int RatingId { get; set; }
+
         public Rating()
         {
-            this.RatingId = Guid.NewGuid().ToString();
             this.DateCreated = DateTime.Now;
         }
-
-        public string RatingId { get; set; }
-
-        public virtual User User{ get; set; }
 
         public virtual Haiku Haiku { get; set; }
 

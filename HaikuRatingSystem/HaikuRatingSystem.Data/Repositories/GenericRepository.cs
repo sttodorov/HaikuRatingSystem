@@ -25,7 +25,7 @@
             return this.All().Where(conditions);
         }
 
-        public T GetById(object id)
+        public T GetById(int id)
         {
             return this.context.SetEntity<T>().Find(id);
         }

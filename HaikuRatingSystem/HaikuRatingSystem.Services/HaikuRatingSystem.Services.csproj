@@ -130,7 +130,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -165,11 +164,21 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\HaikusController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Enums\HaikusSrotBy.cs" />
+    <Compile Include="Enums\SortingType.cs" />
+    <Compile Include="Enums\UsersSortBy.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\HaikuCreationViewModel.cs" />
+    <Compile Include="Models\HaikuRatingViewModel.cs" />
+    <Compile Include="Models\HaikuViewModel.cs" />
+    <Compile Include="Models\HaikuSimpleViewModel.cs" />
+    <Compile Include="Models\UserViewModel.cs" />
+    <Compile Include="Models\UserSimpleViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -206,7 +215,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -223,6 +234,10 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HaikuRaitingSystem.Common\HaikuRaitingSystem.Common.csproj">
+      <Project>{f04b73a8-2400-48cb-af87-6c7cf558492b}</Project>
+      <Name>HaikuRaitingSystem.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HaikuRatingSystem.Data\HaikuRatingSystem.Data.csproj">
       <Project>{e90aae5f-b8a3-450d-b63b-0ce123df310f}</Project>
       <Name>HaikuRatingSystem.Data</Name>
@@ -236,7 +251,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>

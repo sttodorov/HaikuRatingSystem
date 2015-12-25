@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaikuRatingSystem.Services", "HaikuRatingSystem.Services\HaikuRatingSystem.Services.csproj", "{429FE4DA-3353-407F-8FFD-FA1F53483367}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaikuRatingSystem.Models", "HaikuRatingSystem.Models\HaikuRatingSystem.Models.csproj", "{4DB3398A-A82B-4182-B8D7-447BC8D8CE9F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaikuRatingSystem.Data", "HaikuRatingSystem.Data\HaikuRatingSystem.Data.csproj", "{E90AAE5F-B8A3-450D-B63B-0CE123DF310F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaikuRaitingSystem.Common", "HaikuRaitingSystem.Common\HaikuRaitingSystem.Common.csproj", "{F04B73A8-2400-48CB-AF87-6C7CF558492B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{E90AAE5F-B8A3-450D-B63B-0CE123DF310F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E90AAE5F-B8A3-450D-B63B-0CE123DF310F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E90AAE5F-B8A3-450D-B63B-0CE123DF310F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F04B73A8-2400-48CB-AF87-6C7CF558492B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F04B73A8-2400-48CB-AF87-6C7CF558492B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F04B73A8-2400-48CB-AF87-6C7CF558492B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F04B73A8-2400-48CB-AF87-6C7CF558492B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

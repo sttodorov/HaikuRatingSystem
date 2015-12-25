@@ -6,13 +6,12 @@
 
     public class Haiku
     {
-        public string HaikuId { get; set; }
+        public int HaikuId { get; set; }
 
         public Haiku()
         {
-            this.HaikuId = Guid.NewGuid().ToString();
             this.Ratings = new HashSet<Rating>();
-            this.Reported = false;
+            this.IsReported = false;
             this.DateCreated = DateTime.Now;
             this.DateReported = new DateTime(1900, 1, 1);
         }
@@ -28,7 +27,7 @@
         [Required]
         public virtual User Author { get; set; }
 
-        public bool Reported { get; set; }
+        public bool IsReported { get; set; }
 
         public DateTime DateReported { get; set; }
 
