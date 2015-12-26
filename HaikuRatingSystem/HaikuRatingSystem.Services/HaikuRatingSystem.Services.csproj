@@ -164,9 +164,9 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HaikusController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
-    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Enums\HaikusSrotBy.cs" />
     <Compile Include="Enums\SortingType.cs" />
     <Compile Include="Enums\UsersSortBy.cs" />
@@ -174,11 +174,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\HaikuCreationViewModel.cs" />
-    <Compile Include="Models\HaikuRatingViewModel.cs" />
+    <Compile Include="Models\RatingViewModel.cs" />
     <Compile Include="Models\HaikuViewModel.cs" />
     <Compile Include="Models\HaikuSimpleViewModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
-    <Compile Include="Models\UserSimpleViewModel.cs" />
+    <Compile Include="Models\UserCreationViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

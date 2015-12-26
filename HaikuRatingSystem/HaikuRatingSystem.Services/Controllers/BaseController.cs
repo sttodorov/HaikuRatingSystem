@@ -37,11 +37,18 @@ namespace HaikuRatingSystem.Services.Controllers
 
         protected bool IsAuthValud(int userId, string password)
         {
-            return this.data.Users.GetById(userId).PasswordHash == Encryptor.GenerateHash(password);
+            var selectedUser = this.data.Users.GetById(userId);
+            if(selectedUser == null)
+            {
+                return false;
+            }
+
+            return selectedUser.PasswordHash == Encryptor.GenerateHash(password);
+
         }
         protected bool IsAdminAuth(string password)
         {
-            // TODO: Only for demo purpossees.
+            // TODO: Only for demo purpossees. Ckeck from DB
             return password == "Adm1n!";
         }
     }

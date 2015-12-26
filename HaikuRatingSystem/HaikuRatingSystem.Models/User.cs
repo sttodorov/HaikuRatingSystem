@@ -16,10 +16,8 @@ namespace HaikuRatingSystem.Models
         }
 
         [Required]
-        [MinLength(3)]
-        [MaxLength(15)]
+        [StringLength(15, MinimumLength = 3)]
         public string UserName { get; set; }
-
 
         [Required]
         public string PasswordHash { get; set; }

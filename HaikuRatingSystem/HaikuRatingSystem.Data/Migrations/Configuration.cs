@@ -1,5 +1,6 @@
 namespace HaikuRatingSystem.Data.Migrations
 {
+    using HaikuRaitingSystem.Common;
     using Models;
     using System;
     using System.Data.Entity;
@@ -16,7 +17,7 @@ namespace HaikuRatingSystem.Data.Migrations
 
         protected override void Seed(HaikuRatingSystem.Data.Repositories.HaikuRatingSystemContext context)
         {
-            var simpleUser = (new User() { UserName = "xstox", PasswordHash = "1234" });
+            var simpleUser = (new User() { UserName = "xstox", PasswordHash = Encryptor.GenerateHash("1234") });
             var simpleHaiku = new Haiku() { Content = "My First haiku is better than Haiku", Author = simpleUser};
             if (!context.Users.Any())
             {

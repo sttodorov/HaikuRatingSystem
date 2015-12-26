@@ -59,6 +59,10 @@
     <Compile Include="Repositories\IGenericRepository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HaikuRaitingSystem.Common\HaikuRaitingSystem.Common.csproj">
+      <Project>{f04b73a8-2400-48cb-af87-6c7cf558492b}</Project>
+      <Name>HaikuRaitingSystem.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HaikuRatingSystem.Models\HaikuRatingSystem.Models.csproj">
       <Project>{4db3398a-a82b-4182-b8d7-447bc8d8ce9f}</Project>
       <Name>HaikuRatingSystem.Models</Name>

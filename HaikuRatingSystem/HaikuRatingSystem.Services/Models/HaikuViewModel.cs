@@ -10,7 +10,13 @@ namespace HaikuRatingSystem.Services.Models
     public class HaikuViewModel
     {
         public int Id { get; set; }
+
+        public string Author { get; set; }
+
+        public DateTime DatePublished { get; set; }
+
         public string Text { get; set; }
+
         public double Rating { get; set; }
 
         public static Expression<Func<Haiku, HaikuViewModel>> FromHaiku
@@ -20,10 +26,11 @@ namespace HaikuRatingSystem.Services.Models
                 return h => new HaikuViewModel
                 {
                     Id = h.HaikuId,
+                    Author = h.Author.UserName,
                     Text = h.Content,
-                    Rating = h.Ratings.Average(r => r.RatingValue)
+                    DatePublished = h.DateCreated,
+                    Rating = !h.Ratings.Any() ? 0 : h.Ratings.Average(r => r.RatingValue)
                 };
-
             }
         }
     }

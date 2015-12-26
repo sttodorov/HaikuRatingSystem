@@ -15,9 +15,9 @@
         public virtual Haiku Haiku { get; set; }
 
         [Required]
-        [Range(1,5)]
+        [Range(1, 5)]
         public int RatingValue { get; set; }
 
-        public DateTime DateCreated { get;  set; }
+        public DateTime DateCreated { get; set; }
     }
 }

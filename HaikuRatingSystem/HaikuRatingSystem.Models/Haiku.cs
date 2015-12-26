@@ -20,8 +20,7 @@
         public DateTime DateCreated { get; set; }
 
         [Required]
-        [MinLength(3)]
-        [MaxLength(100)]
+        [StringLength(100, MinimumLength = 3)]
         public string Content { get; set; }
 
         [Required]

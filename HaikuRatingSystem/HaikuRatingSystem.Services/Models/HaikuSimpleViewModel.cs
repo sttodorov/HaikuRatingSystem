@@ -21,5 +21,10 @@ namespace HaikuRatingSystem.Services.Models
 
             }
         }
+
+        public bool IsValid()
+        {
+            return this.Text.Length > 3 && this.Text.Length < 101;
+        }
     }
 }
