@@ -37,7 +37,15 @@
             return defered.promise;
         }
 
+        // TODO: Implement PUT and DELETE, auth required for both
         function put() {
+            var authHeader = authorization.getAuthorizationHeader();
+
+            throw new Error('Not implemented!');
+        }
+        function deleteData() {
+            var authHeader = authorization.getAuthorizationHeader();
+
             throw new Error('Not implemented!');
         }
 

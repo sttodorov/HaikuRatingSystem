@@ -27,5 +27,5 @@
     angular.module('myApp', ['ngRoute', 'ngCookies', 'myApp.controllers', 'myApp.directives'])
         .config(['$routeProvider', '$locationProvider', config])
         .value('toastr', toastr)
-        .constant('baseServiceUrl', 'http://spa2014.bgcoder.com');
+        .constant('baseServiceUrl', 'http://localhost:17031');
 }());

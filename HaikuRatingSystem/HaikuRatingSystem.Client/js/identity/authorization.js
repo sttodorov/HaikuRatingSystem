@@ -5,12 +5,11 @@
         return {
             getAuthorizationHeader: function () {
 
-                if (!identity.isAuthenticated()) {
-                    return {};
-                };
+                // TODO: Export this in partial pop up 
+                var publishCode = prompt("Enter publish code");
 
                 return {
-                    'Authorization': 'Bearer ' + identity.getCurrentUser()['access_token']
+                    'PublishCode': publishCode
                 }
             }
         }

@@ -69,7 +69,8 @@
     <Content Include="js\common\data.js" />
     <Content Include="js\home\home-controller.js" />
     <Content Include="js\home\some-directive.js" />
-    <Content Include="js\home\some-service.js" />
+    <Content Include="js\services\users-service.js" />
+    <Content Include="js\services\haikus-service.js" />
     <Content Include="lib\angular\angular-cookies.js" />
     <Content Include="lib\angular\angular-route.js" />
     <Content Include="lib\angular\angular.js" />
@@ -99,7 +100,6 @@
     <Content Include="css\toastr.min.css" />
     <Content Include="index.html" />
     <Content Include="js\app.js" />
-    <Content Include="js\identity\login-controller.js" />
     <Content Include="js\identity\register-controller.js" />
     <Content Include="js\identity\auth.js" />
     <Content Include="js\identity\authorization.js" />
@@ -113,7 +113,6 @@
     <None Include="scripts\_references.js" />
     <Content Include="views\directives\some-directive.html" />
     <Content Include="views\partials\home\home.html" />
-    <Content Include="views\partials\identity\login.html" />
     <Content Include="views\partials\identity\register.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

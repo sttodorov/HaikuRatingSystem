@@ -1,3 +1,7 @@
 ﻿<div class="container">
-    {{vm.stats.trips}}
+    <div ng-repeat="user in vm.users"> 
+        Username: {{user.UserName}} <br />
+        Rating: {{user.Rating}} <br />
+        <!-- TODO: Add haikus or just hoiukus count -->
+    </div>
 </div>
