@@ -16,7 +16,7 @@ namespace HaikuRatingSystem.Services.Models
             {
                 return h => new HaikuSimpleViewModel
                 {
-                    Text = h.Content
+                    Text = h.Text
                 };
 
             }

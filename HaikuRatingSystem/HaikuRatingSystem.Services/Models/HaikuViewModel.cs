@@ -11,7 +11,7 @@ namespace HaikuRatingSystem.Services.Models
     {
         public int Id { get; set; }
 
-        public string Author { get; set; }
+        public string AuthorName { get; set; }
 
         public DateTime DatePublished { get; set; }
 
@@ -26,9 +26,9 @@ namespace HaikuRatingSystem.Services.Models
                 return h => new HaikuViewModel
                 {
                     Id = h.HaikuId,
-                    Author = h.Author.UserName,
-                    Text = h.Content,
-                    DatePublished = h.DateCreated,
+                    AuthorName = h.Author.UserName,
+                    Text = h.Text,
+                    DatePublished = h.DatePublished,
                     Rating = !h.Ratings.Any() ? 0 : h.Ratings.Average(r => r.RatingValue)
                 };
             }

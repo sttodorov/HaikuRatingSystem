@@ -85,13 +85,13 @@ namespace HaikuRatingSystem.Services.Controllers
                 return BadRequest("Username or password are not correct");
             }
 
-            var haikuToAdd = new Haiku() { Author = currentUser, Content = haiku.Text };
+            var haikuToAdd = new Haiku() { Author = currentUser, Text = haiku.Text };
 
             this.data.Haikus.Add(haikuToAdd);
             this.data.SaveChanges();
 
 
-            var created = currentUser.Haikus.AsQueryable().Where(h => h.Content == haiku.Text).Select(HaikuCreationViewModel.FromHaiku).FirstOrDefault();
+            var created = currentUser.Haikus.AsQueryable().Where(h => h.Text == haiku.Text).Select(HaikuCreationViewModel.FromHaiku).FirstOrDefault();
 
             return Created<HaikuCreationViewModel>("", created);
         }
@@ -111,7 +111,7 @@ namespace HaikuRatingSystem.Services.Controllers
                 return BadRequest("Hakiu with selected id was not found!");
             }
 
-            var ratingToCreate = new Rating() { Haiku = selectedHaiku, RatingValue = rating.Rating };
+            var ratingToCreate = new Rating() { Haiku = selectedHaiku, RatingValue = rating.RatingValue };
 
             selectedHaiku.Ratings.Add(ratingToCreate);
 
@@ -227,7 +227,7 @@ namespace HaikuRatingSystem.Services.Controllers
             {
                 return new HttpResponseMessage(System.Net.HttpStatusCode.BadRequest) { Content = new StringContent("Haiku with selected ID was not found!") };
             }
-            selectedHaiku.Content = haiku.Text;
+            selectedHaiku.Text = haiku.Text;
             this.data.SaveChanges();
 
             var currentRatings = selectedHaiku.Ratings.ToList();

@@ -19,7 +19,7 @@ namespace HaikuRatingSystem.Services.Models
                 return h => new HaikuCreationViewModel
                 {
                     Id = h.HaikuId,
-                    DatePublished = h.DateCreated
+                    DatePublished = h.DatePublished
                 };
 
             }

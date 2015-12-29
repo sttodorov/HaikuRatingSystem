@@ -12,16 +12,16 @@
         {
             this.Ratings = new HashSet<Rating>();
             this.IsReported = false;
-            this.DateCreated = DateTime.Now;
+            this.DatePublished= DateTime.Now;
             this.DateReported = new DateTime(1900, 1, 1);
         }
 
         [Required]
-        public DateTime DateCreated { get; set; }
+        public DateTime DatePublished { get; set; }
 
         [Required]
         [StringLength(100, MinimumLength = 3)]
-        public string Content { get; set; }
+        public string Text { get; set; }
 
         [Required]
         public virtual User Author { get; set; }

@@ -9,7 +9,7 @@ namespace HaikuRatingSystem.Services.Models
 {
     public class RatingViewModel
     {
-        public int Rating { get; set; }
+        public int RatingValue { get; set; }
 
         public static Expression<Func<Rating, RatingViewModel>> FromRating
         {
@@ -17,7 +17,7 @@ namespace HaikuRatingSystem.Services.Models
             {
                 return r => new RatingViewModel()
                 {
-                    Rating = r.RatingValue
+                    RatingValue = r.RatingValue
                 };
 
             }
@@ -27,13 +27,13 @@ namespace HaikuRatingSystem.Services.Models
         {
             return new RatingViewModel()
             {
-                Rating = rating.RatingValue
+                RatingValue = rating.RatingValue
             };
         }
 
         public bool IsValid()
         {
-            return this.Rating > 0 && this.Rating < 6;
+            return this.RatingValue > 0 && this.RatingValue < 6;
         }
     }
 }
