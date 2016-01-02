@@ -18,6 +18,11 @@
                 templateUrl: PARTIALS_PREFIX + 'identity/register.html',
                 controller: 'SignUpCtrl'
             })
+            .when('/haikus', {
+                templateUrl: PARTIALS_PREFIX + 'haikus/haikus.html',
+                controller: 'HaikusController',
+                controllerAs: CONTROLLER_AS_VIEW_MODEL
+            })
             .otherwise({ redirectTo: '/' });
     }
 

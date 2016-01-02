@@ -67,10 +67,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="js\common\data.js" />
+    <Content Include="js\haikus\all-haikus-directive.js" />
+    <Content Include="js\haikus\haikus-controller.js" />
     <Content Include="js\home\home-controller.js" />
-    <Content Include="js\home\some-directive.js" />
     <Content Include="js\services\users-service.js" />
     <Content Include="js\services\haikus-service.js" />
+    <Content Include="js\users\all-users-directive.js" />
     <Content Include="lib\angular\angular-cookies.js" />
     <Content Include="lib\angular\angular-route.js" />
     <Content Include="lib\angular\angular.js" />
@@ -111,7 +113,9 @@
     <Content Include="lib\toastr\toastr.js" />
     <Content Include="lib\toastr\toastr.min.js" />
     <None Include="scripts\_references.js" />
-    <Content Include="views\directives\some-directive.html" />
+    <Content Include="views\directives\all-haikus-directive.html" />
+    <Content Include="views\directives\all-users-directive.html" />
+    <Content Include="views\partials\haikus\haikus.html" />
     <Content Include="views\partials\home\home.html" />
     <Content Include="views\partials\identity\register.html" />
     <Content Include="Web.config">

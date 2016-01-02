@@ -3,6 +3,7 @@
 /// <reference path="../js/common/data.js" />
 /// <reference path="../js/common/notifier.js" />
 /// <reference path="../js/haikus/all-haikus-directive.js" />
+/// <reference path="../js/haikus/haikus-controller.js" />
 /// <reference path="../js/home/home-controller.js" />
 /// <reference path="../js/identity/auth.js" />
 /// <reference path="../js/identity/authorization.js" />
