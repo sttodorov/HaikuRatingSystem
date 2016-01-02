@@ -1,0 +1,24 @@
+﻿<table class="table table-bordered">
+    <tr>
+        <th class="text-center">
+            Username
+        </th>
+        <th class="text-center">
+            Rating
+        </th>
+        <th class="text-center">
+            Haikus
+        </th>
+    </tr>
+    <tr ng-repeat="user in vm.users" ng-class-even="'even-class'" ng-class-odd="'odd-class'">
+        <td class="text-center">
+            <a href="users/{{user.Username}}">{{user.Username}}</a>
+        </td>
+        <td class="text-center">
+            {{user.Rating}}
+        </td>
+        <td class="text-center">
+            {{user.Haikus.length}}
+        </td>
+    </tr>
+</table>

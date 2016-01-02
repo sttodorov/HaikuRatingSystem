@@ -1,7 +1,29 @@
 ﻿<div class="container">
-    <div ng-repeat="user in vm.users"> 
-        Username: {{user.UserName}} <br />
-        Rating: {{user.Rating}} <br />
-        <!-- TODO: Add haikus or just hoiukus count -->
+    <div class="jumbotron text-center">
+        <h1>Welcome to Haiku Rating System</h1>
+        <h2>Enjoy thousands of haikus!!!</h2>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-primary text-center">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Top Users</h3>
+                </div>
+                <div class="panel-body">
+                    <div all-users />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-primary text-center">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Top Haikus</h3>
+                </div>
+                <div class="panel-body">
+                    <div all-haikus />
+                </div>
+            </div>
+        </div>
     </div>
 </div>

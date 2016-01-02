@@ -1,0 +1,18 @@
+﻿<table class="table table-bordered">
+    <tr>
+        <th class="text-center">
+            Text
+        </th>
+        <th class="text-center">
+            Rating
+        </th>
+    </tr>
+    <tr ng-repeat="haiku in vm.haikus" ng-class-even="'even-class'" ng-class-odd="'odd-class'">
+        <td class="text-center">
+            {{haiku.Text}}
+        </td>
+        <td class="text-center">
+            {{haiku.Rating}}
+        </td>
+    </tr>
+</table>

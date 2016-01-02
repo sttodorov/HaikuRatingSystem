@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    function HomeController(UsersService) {
+    function HomeController(UsersService, HaikusService) {
         var vm = this;
 
         UsersService.getUsers()
@@ -9,9 +9,12 @@
                 vm.users = users;
             });
 
-        vm.home = 'Home';
+        HaikusService.getHaikus()
+            .then(function (haikus) {
+                vm.haikus = haikus;
+            });
     }
 
     angular.module('myApp.controllers')
-        .controller('HomeController', ['UsersService', HomeController]);
+        .controller('HomeController', ['UsersService', 'HaikusService', HomeController]);
 }()); 
