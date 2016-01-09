@@ -23,7 +23,7 @@ namespace HaikuRatingSystem.Services.Models
                 return user => new UserViewModel()
                 {
                     UserName = user.UserName,
-                    Rating = !user.Haikus.Any() ? 0 : user.Haikus.All(h => !h.Ratings.Any()) ? 0 : user.Haikus.Average(h => h.Ratings.Average(r => r.RatingValue)),
+                    Rating = !user.Haikus.Any() ? 0 : !user.Haikus.Where(u => u.Ratings.Any()).Any() ? 0 : user.Haikus.Where(u => u.Ratings.Any()).Average(h => h.Ratings.Average(r => r.RatingValue)),
                     Haikus = user.Haikus.AsQueryable().Select(HaikuViewModel.FromHaiku).ToList()
                 };
             }
@@ -37,7 +37,7 @@ namespace HaikuRatingSystem.Services.Models
             return new UserViewModel()
             {
                 UserName = user.UserName,
-                Rating = !user.Haikus.Any() ? 0 : user.Haikus.All(h => !h.Ratings.Any()) ? 0 : user.Haikus.Average(h => h.Ratings.Average(r => r.RatingValue)),
+                Rating = !user.Haikus.Any() ? 0 : !user.Haikus.Where(u => u.Ratings.Any()).Any() ? 0 : user.Haikus.Where(u => u.Ratings.Any()).Average(h => h.Ratings.Average(r => r.RatingValue)),
                 Haikus = user.Haikus.AsQueryable().Select(HaikuViewModel.FromHaiku).ToList()
             };
         }

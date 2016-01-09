@@ -16,13 +16,13 @@ namespace HaikuRatingSystem.Services.Controllers
     {
         [HttpGet]
         [Route("")]
-        public IHttpActionResult Get([FromUri]HaikusSrotBy sortby = HaikusSrotBy.DateCreated, [FromUri]SortingType sortType = SortingType.Ascending, [FromUri]int skipCount = 0, [FromUri]int takeCount = 20)
+        public IHttpActionResult Get([FromUri]HaikusSrotBy sortby = HaikusSrotBy.DateCreated, [FromUri]SortingType sorttype = SortingType.Ascending, [FromUri]int page = 0, [FromUri]int take = 10)
         {
             var allDataHaikus = this.data.Haikus.All();
             IEnumerable<HaikuViewModel> allHaikus = allDataHaikus.Select(HaikuViewModel.FromHaiku);
             IEnumerable<HaikuViewModel> sortedHaikus = null;
 
-            if (sortType == SortingType.Ascending)
+            if (sorttype == SortingType.Ascending)
             {
                 if (sortby == HaikusSrotBy.DateCreated)
                 {
@@ -45,12 +45,12 @@ namespace HaikuRatingSystem.Services.Controllers
                 }
             }
 
-            return Ok(sortedHaikus.Skip(skipCount).Take(takeCount).ToList());
+            return Ok(sortedHaikus.Skip((page-1)*take).Take(take).ToList());
         }
 
         [HttpGet]
         [Route("reported")]
-        public IHttpActionResult Get([FromUri]int skipCount = 0, [FromUri]int takeCount = 20)
+        public IHttpActionResult Get([FromUri]int page = 0, [FromUri]int take = 10)
         {
             if (!Request.Headers.Contains("PublishCode"))
             {
@@ -65,7 +65,7 @@ namespace HaikuRatingSystem.Services.Controllers
 
             var reported = this.data.Haikus.All().Where(h => h.IsReported).OrderBy(h => h.DateReported).Select(HaikuViewModel.FromHaiku);
 
-            return Ok(reported.Skip(skipCount).Take(takeCount).ToList());
+            return Ok(reported.Skip((page-1)*take).Take(take).ToList());
         }
 
         [HttpPost]

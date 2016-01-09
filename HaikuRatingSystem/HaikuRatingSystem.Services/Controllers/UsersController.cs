@@ -15,7 +15,7 @@
     {
         [HttpGet]
         [Route("")]
-        public IHttpActionResult Get([FromUri]UsersSortBy sortby = UsersSortBy.UserName, [FromUri]SortingType sortType = SortingType.Ascending, [FromUri]int skipCount = 0, [FromUri]int takeCount = 20)
+        public IHttpActionResult Get([FromUri]UsersSortBy sortby = UsersSortBy.UserName, [FromUri]SortingType sortType = SortingType.Ascending, [FromUri]int page = 0, [FromUri]int take = 10)
         {
             var allUsers = this.data.Users.All();
             IQueryable<User> vipDataUsers = allUsers.Where(u => u.IsVip);
@@ -55,7 +55,7 @@
             }
 
             var result = sortedVip.Concat(sortedNormal);
-            return Ok(result.Skip(skipCount).Take(takeCount).ToList());
+            return Ok(result.Skip((page-1)*take).Take(take).ToList());
         }
 
         [HttpGet]
