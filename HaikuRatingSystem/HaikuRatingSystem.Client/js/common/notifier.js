@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('myApp.services').factory('notifier', ['toastr', function (toastr) {
+    angular.module('HaikusRatingSystem.services').factory('notifier', ['toastr', function (toastr) {
         return {
             success: function (msg) {
                 toastr.success(msg);

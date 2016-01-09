@@ -10,6 +10,6 @@
         }
     }
 
-    angular.module('myApp.controllers')
+    angular.module('HaikusRatingSystem.controllers')
         .controller('SignUpCtrl', ['$scope', '$location', 'auth', 'notifier', RegisterController]);
 }());

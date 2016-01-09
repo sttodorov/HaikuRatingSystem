@@ -7,6 +7,9 @@
             var defered = $q.defer();
 
             var authHeader = authorization.getAuthorizationHeader();
+            console.log("Request url: " + url);
+            console.log("Request params: ");
+            console.log(queryParams);
 
             $http.get(baseServiceUrl + '/' + url, { params: queryParams, headers: authHeader })
                 .then(function (response) {
@@ -68,6 +71,6 @@
         };
     }
 
-    angular.module('myApp.services')
+    angular.module('HaikusRatingSystem.services')
         .factory('data', ['$http', '$q', 'authorization', 'notifier', 'baseServiceUrl', data]);
 }());

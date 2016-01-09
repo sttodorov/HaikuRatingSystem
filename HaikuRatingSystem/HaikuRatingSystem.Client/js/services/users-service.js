@@ -3,15 +3,20 @@
 
     function UsersService(data) {
 
-        function getUsers() {
-            return data.get('api/users');
-        }
+        function getUsers(filters) {
+            return data.get('api/users', filters);
+        };
+
+        function getUser(username) {
+            return data.get('api/users/' + username);
+        };
 
         return {
-            getUsers: getUsers
+            getUsers: getUsers,
+            getUser: getUser
         }
     }
 
-    angular.module('myApp.services')
+    angular.module('HaikusRatingSystem.services')
         .factory('UsersService', ['data', UsersService]);
 }());

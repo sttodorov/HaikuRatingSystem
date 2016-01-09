@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    function HaikusController(haikusService) {
+    function UsersController(usersService) {
         var vm = this;
 
         vm.request = {
@@ -18,29 +18,29 @@
 
             vm.request.page--;
             vm.request.skip = (vm.request.page - 1) * vm.request.take;
-            vm.filterHaikus();
+            vm.filterUsers();
         }
 
         vm.nextPage = function () {
-            if (!vm.haikus || vm.haikus.length == 0) {
+            if (!vm.users || vm.users.length == 0) {
                 return;
             }
 
             vm.request.page++;
             vm.request.skip = (vm.request.page - 1) * vm.request.take;
-            vm.filterHaikus();
+            vm.filterUsers();
         }
 
-        vm.filterHaikus = function () {
-            haikusService.getHaikus(vm.request)
-                .then(function (filteredHaikus) {
-                    vm.haikus = filteredHaikus;
+        vm.filterUsers = function () {
+            usersService.getUsers(vm.request)
+                .then(function (filteredUsers) {
+                    vm.users = filteredUsers;
                 });
         };
 
-        vm.filterHaikus();
+        vm.filterUsers();
     }
 
     angular.module('HaikusRatingSystem.controllers')
-        .controller('HaikusController', ['HaikusService', HaikusController]);
+        .controller('UsersController', ['UsersService', UsersController]);
 }());

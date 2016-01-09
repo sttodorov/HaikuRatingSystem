@@ -15,6 +15,6 @@
             });
     }
 
-    angular.module('myApp.controllers')
+    angular.module('HaikusRatingSystem.controllers')
         .controller('HomeController', ['UsersService', 'HaikusService', HomeController]);
 }()); 

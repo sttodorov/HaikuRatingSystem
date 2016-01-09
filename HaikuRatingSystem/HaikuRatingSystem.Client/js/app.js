@@ -23,13 +23,23 @@
                 controller: 'HaikusController',
                 controllerAs: CONTROLLER_AS_VIEW_MODEL
             })
+            .when('/users', {
+                templateUrl: PARTIALS_PREFIX + 'users/users.html',
+                controller: 'UsersController',
+                controllerAs: CONTROLLER_AS_VIEW_MODEL
+            })
+            .when('/users/:username', {
+                templateUrl: PARTIALS_PREFIX + 'users/user.html',
+                controller: 'UserViewModel',
+                controllerAs: CONTROLLER_AS_VIEW_MODEL
+            })
             .otherwise({ redirectTo: '/' });
     }
 
-    angular.module('myApp.services', []);
-    angular.module('myApp.directives', []);
-    angular.module('myApp.controllers', ['myApp.services']);
-    angular.module('myApp', ['ngRoute', 'ngCookies', 'myApp.controllers', 'myApp.directives'])
+    angular.module('HaikusRatingSystem.services', []);
+    angular.module('HaikusRatingSystem.directives', []);
+    angular.module('HaikusRatingSystem.controllers', ['HaikusRatingSystem.services']);
+    angular.module('HaikusRatingSystem', ['ngRoute', 'ngCookies', 'HaikusRatingSystem.controllers', 'HaikusRatingSystem.directives'])
         .config(['$routeProvider', '$locationProvider', config])
         .value('toastr', toastr)
         .constant('baseServiceUrl', 'http://localhost:17031');

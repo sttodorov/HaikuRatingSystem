@@ -30,5 +30,5 @@
         }
     }
 
-    angular.module('myApp.services').factory('identity', ['$cookieStore', identity]);
+    angular.module('HaikusRatingSystem.services').factory('identity', ['$cookieStore', identity]);
 }());

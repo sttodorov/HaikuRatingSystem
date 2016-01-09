@@ -1,0 +1,35 @@
+﻿<div class="container">
+    <h2 class="text-center">
+        User: {{vm.user.UserName}} Rating: {{vm.user.Rating}}
+    </h2>
+
+    <br />
+    <h3>Haikus</h3>
+
+    <div class="panel-group" id="accordion">
+        
+        <div ng-repeat="haiku in vm.user.Haikus" class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{haiku.Id}}">Id: {{haiku.Id}}. Published at {{haiku.DatePublished}}</a>
+                </h4>
+            </div>
+            <div id="collapse{{haiku.Id}}" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <b>Rating: {{haiku.Rating}}</b>
+                    <br/>
+                    Content: {{haiku.Text}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TODO: Error If user is not found
+        <div ng-show="vm.users && vm.users.length > 0">
+        <div all-users/>
+    </div>
+    <div ng-hide="vm.users && vm.users.length > 0">
+        <h2 class="text-center">No results!</h2>
+    </div>-->
+
+</div>

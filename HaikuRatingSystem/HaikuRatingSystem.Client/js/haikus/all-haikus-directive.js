@@ -8,6 +8,6 @@
         }
     }
 
-    angular.module('myApp.directives')
+    angular.module('HaikusRatingSystem.directives')
         .directive('allHaikus', [allHaikus]);
 }());

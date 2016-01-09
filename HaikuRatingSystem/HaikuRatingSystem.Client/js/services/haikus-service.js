@@ -12,6 +12,6 @@
         };
     };
 
-    angular.module('myApp.services')
+    angular.module('HaikusRatingSystem.services')
         .factory('HaikusService', ['data', HaikusService]);
 }());

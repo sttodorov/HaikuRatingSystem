@@ -6,7 +6,7 @@
             getAuthorizationHeader: function () {
 
                 // TODO: Export this in partial pop up 
-                var publishCode = prompt("Enter publish code");
+                var publishCode = '';  //prompt("Enter publish code");
 
                 return {
                     'PublishCode': publishCode
@@ -15,6 +15,6 @@
         }
     }
 
-    angular.module('myApp.services')
+    angular.module('HaikusRatingSystem.services')
         .factory('authorization', ['identity', authorization]);
 }());

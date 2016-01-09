@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/toastr.min.css" />
     <link rel="stylesheet" href="css/app.css" />
 </head>
-<body ng-app="myApp" ng-cloak>
+<body ng-app="HaikusRatingSystem" ng-cloak>
     <div class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
@@ -28,7 +28,10 @@
                     <li>
                         <a href="/haikus">Haikus</a>
                     </li>
-                </ul>f
+                    <li>
+                        <a href="/users">Users</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
@@ -53,6 +56,8 @@
     <script src="js/services/haikus-service.js"></script>
     <script src="js/services/users-service.js"></script>
     <script src="js/users/all-users-directive.js"></script>
+    <script src="js/users/users-controller.js"></script>
+    <script src="js/users/user-viewmodel.js"></script>
     <script src="js/haikus/all-haikus-directive.js"></script>
     <script src="js/haikus/haikus-controller.js"></script>
     <script src="js/identity/auth.js"></script>

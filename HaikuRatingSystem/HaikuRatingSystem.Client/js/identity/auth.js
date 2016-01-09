@@ -28,6 +28,6 @@
         }
     }
 
-    angular.module('myApp.services')
+    angular.module('HaikusRatingSystem.services')
         .factory('auth', ['$http', '$q', 'identity', 'authorization', 'baseServiceUrl', auth]);
 }());
