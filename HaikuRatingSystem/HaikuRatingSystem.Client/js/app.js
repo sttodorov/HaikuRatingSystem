@@ -16,7 +16,8 @@
             })
             .when('/register', {
                 templateUrl: PARTIALS_PREFIX + 'identity/register.html',
-                controller: 'SignUpCtrl'
+                controller: 'RegisterController',
+                controllerAs: CONTROLLER_AS_VIEW_MODEL
             })
             .when('/haikus', {
                 templateUrl: PARTIALS_PREFIX + 'haikus/haikus.html',

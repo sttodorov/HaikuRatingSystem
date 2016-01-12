@@ -105,7 +105,7 @@
     <Content Include="index.html" />
     <Content Include="js\app.js" />
     <Content Include="js\identity\register-controller.js" />
-    <Content Include="js\identity\auth.js" />
+    <Content Include="js\identity\auth-service.js" />
     <Content Include="js\identity\authorization.js" />
     <Content Include="js\identity\identity.js" />
     <Content Include="js\common\notifier.js" />
