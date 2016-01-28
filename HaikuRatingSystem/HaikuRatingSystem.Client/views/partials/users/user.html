@@ -4,6 +4,10 @@
     </h2>
 
     <a href="/{{vm.user.Username}}/haikus" class="btn btn-success center-block">Publish</a>
+
+    <button ng-click="vm.promoteUser()" class="btn btn-info" >Promote</button>
+    <button ng-click="vm.deleteUser()" class="btn btn-danger">Delete</button>
+    
     <br />
     <h3>Haikus</h3>
     <div class="panel-group" id="accordion">

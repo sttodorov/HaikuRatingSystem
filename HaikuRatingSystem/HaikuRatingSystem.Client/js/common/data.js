@@ -6,7 +6,7 @@
         function get(url, queryParams) {
             var defered = $q.defer();
 
-            $http.get(baseServiceUrl + '/' + url, { params: queryParams})
+            $http.get(baseServiceUrl + '/' + url, { params: queryParams })
                 .then(function (response) {
                     defered.resolve(response.data);
                 }, function (error) {
@@ -37,25 +37,46 @@
             return defered.promise;
         }
 
-        function put() {
+        function put(url, putData) {
+            var defered = $q.defer();
             var authHeader = authorization.getAuthorizationHeader();
 
-            throw new Error('Not implemented!');
+            $http.put(baseServiceUrl + '/' + url, putData, { headers: authHeader })
+                 .then(function (response) {
+                     defered.resolve(response.data);
+                 }, function (error) {
+                     error = getErrorMessage(error);
+                     notifier.error(error);
+                     defered.reject(error);
+                 });
+
+            return defered.promise;
         }
-        function deleteData() {
+
+        function deleteData(url) {
+            var defered = $q.defer();
             var authHeader = authorization.getAuthorizationHeader();
 
-            throw new Error('Not implemented!');
+            $http.delete(baseServiceUrl + '/' + url, { headers: authHeader })
+                 .then(function (response) {
+                     defered.resolve(response.data);
+                 }, function (error) {
+                     error = getErrorMessage(error);
+                     notifier.error(error);
+                     defered.reject(error);
+                 });
+            return defered.promise;
         }
 
         function getErrorMessage(response) {
-            return response.data.Message;
+            return response.data.Message || response.data;
         }
 
         return {
             get: get,
             post: post,
-            put: put
+            put: put,
+            deleteData: deleteData
         };
     }
 
