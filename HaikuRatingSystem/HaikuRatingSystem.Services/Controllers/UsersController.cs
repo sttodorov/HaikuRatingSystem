@@ -15,7 +15,7 @@
     {
         [HttpGet]
         [Route("")]
-        public IHttpActionResult Get([FromUri]UsersSortBy sortby = UsersSortBy.UserName, [FromUri]SortingType sortType = SortingType.Ascending, [FromUri]int page = 0, [FromUri]int take = 10)
+        public IHttpActionResult Get([FromUri]UsersSortBy sortby = UsersSortBy.Username, [FromUri]SortingType sortType = SortingType.Ascending, [FromUri]int page = 0, [FromUri]int take = 10)
         {
             var allUsers = this.data.Users.All();
             IQueryable<User> vipDataUsers = allUsers.Where(u => u.IsVip);
@@ -29,10 +29,10 @@
 
             if (sortType == SortingType.Ascending)
             {
-                if (sortby == UsersSortBy.UserName)
+                if (sortby == UsersSortBy.Username)
                 {
-                    sortedVip = vipUsers.OrderBy(u => u.UserName);
-                    sortedNormal = normalUsers.OrderBy(u => u.UserName);
+                    sortedVip = vipUsers.OrderBy(u => u.Username);
+                    sortedNormal = normalUsers.OrderBy(u => u.Username);
                 }
                 if (sortby == UsersSortBy.Rating)
                 {
@@ -42,10 +42,10 @@
             }
             else
             {
-                if (sortby == UsersSortBy.UserName)
+                if (sortby == UsersSortBy.Username)
                 {
-                    sortedVip = vipUsers.OrderByDescending(u => u.UserName);
-                    sortedNormal = normalUsers.OrderByDescending(u => u.UserName);
+                    sortedVip = vipUsers.OrderByDescending(u => u.Username);
+                    sortedNormal = normalUsers.OrderByDescending(u => u.Username);
                 }
                 if (sortby == UsersSortBy.Rating)
                 {
@@ -74,14 +74,18 @@
         [Route("")]
         public IHttpActionResult Post([FromBody]UserCreationViewModel user)
         {
-            if (string.IsNullOrEmpty(user.UserName) || string.IsNullOrEmpty(user.PublishCode))
+            if (string.IsNullOrEmpty(user.Username) || string.IsNullOrEmpty(user.PublishCode))
             {
                 return BadRequest("Provided user info is not corrrect");
+            }
+            if (GetUser(user.Username) != null)
+            {
+                return BadRequest("Username alredy taken");
             }
 
             this.data.Users.Add(new User()
             {
-                UserName = user.UserName,
+                Username = user.Username,
                 PasswordHash = Encryptor.GenerateHash(user.PublishCode)
             });
             this.data.SaveChanges();
@@ -105,7 +109,7 @@
                 return new HttpResponseMessage(System.Net.HttpStatusCode.Unauthorized) { Content = new StringContent("You don't have permissions to delete accounts") };
             }
 
-            var selectedUser = this.data.Users.All().FirstOrDefault(u => u.UserName == username);
+            var selectedUser = this.data.Users.All().FirstOrDefault(u => u.Username == username);
             if (selectedUser == null)
             {
                 return new HttpResponseMessage(System.Net.HttpStatusCode.BadRequest) { Content = new StringContent("User with selected username was not found!") };
@@ -145,7 +149,7 @@
                 return new HttpResponseMessage(System.Net.HttpStatusCode.Unauthorized) { Content = new StringContent("You don't have permissions to delete accounts") };
             }
 
-            var selectedUser = this.data.Users.All().FirstOrDefault(u => u.UserName == username);
+            var selectedUser = this.data.Users.All().FirstOrDefault(u => u.Username == username);
             if (selectedUser == null)
             {
                 return new HttpResponseMessage(System.Net.HttpStatusCode.BadRequest) { Content = new StringContent("User with selected username was not found!") };

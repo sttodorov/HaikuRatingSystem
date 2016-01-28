@@ -3,13 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Web;
 
 namespace HaikuRatingSystem.Services.Models
 {
     public class UserViewModel
     {
-        public string UserName { get; set; }
+        public string Username { get; set; }
 
         public double Rating { get; set; }
 
@@ -22,7 +21,7 @@ namespace HaikuRatingSystem.Services.Models
                 var emptyHaikuList = new List<HaikuViewModel>();
                 return user => new UserViewModel()
                 {
-                    UserName = user.UserName,
+                    Username = user.Username,
                     Rating = !user.Haikus.Any() ? 0 : !user.Haikus.Where(u => u.Ratings.Any()).Any() ? 0 : user.Haikus.Where(u => u.Ratings.Any()).Average(h => h.Ratings.Average(r => r.RatingValue)),
                     Haikus = user.Haikus.AsQueryable().Select(HaikuViewModel.FromHaiku).ToList()
                 };
@@ -36,7 +35,7 @@ namespace HaikuRatingSystem.Services.Models
 
             return new UserViewModel()
             {
-                UserName = user.UserName,
+                Username = user.Username,
                 Rating = !user.Haikus.Any() ? 0 : !user.Haikus.Where(u => u.Ratings.Any()).Any() ? 0 : user.Haikus.Where(u => u.Ratings.Any()).Average(h => h.Ratings.Average(r => r.RatingValue)),
                 Haikus = user.Haikus.AsQueryable().Select(HaikuViewModel.FromHaiku).ToList()
             };

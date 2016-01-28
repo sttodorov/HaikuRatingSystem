@@ -7,7 +7,7 @@ namespace HaikuRatingSystem.Services.Enums
 {
     public enum UsersSortBy
     {
-        UserName = 0,
+        Username = 0,
         Rating = 1
     }
 }

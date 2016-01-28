@@ -1,9 +1,7 @@
 ﻿using HaikuRatingSystem.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Web;
 
 namespace HaikuRatingSystem.Services.Models
 {
@@ -26,7 +24,7 @@ namespace HaikuRatingSystem.Services.Models
                 return h => new HaikuViewModel
                 {
                     Id = h.HaikuId,
-                    AuthorName = h.Author.UserName,
+                    AuthorName = h.Author.Username,
                     Text = h.Text,
                     DatePublished = h.DatePublished,
                     Rating = !h.Ratings.Any() ? 0 : h.Ratings.Average(r => r.RatingValue)

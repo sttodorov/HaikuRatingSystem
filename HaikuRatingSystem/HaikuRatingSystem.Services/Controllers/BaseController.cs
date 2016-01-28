@@ -1,10 +1,7 @@
 ﻿using HaikuRaitingSystem.Common;
 using HaikuRatingSystem.Data;
 using HaikuRatingSystem.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
@@ -28,13 +25,7 @@ namespace HaikuRatingSystem.Services.Controllers
 
         protected User GetUser(string userName)
         {
-            var user = this.data.Users.All().FirstOrDefault(u => u.UserName == userName);
-            if (user == null)
-            {
-                return user;
-                //throw new ArgumentException("No user with provided publish code.");
-            }
-            return user;
+            return this.data.Users.All().FirstOrDefault(u => u.Username == userName);
         }
 
         protected bool IsAuthValud(int userId, string password)

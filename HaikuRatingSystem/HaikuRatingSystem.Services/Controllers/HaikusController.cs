@@ -1,12 +1,10 @@
-﻿using HaikuRatingSystem.Data;
-using HaikuRatingSystem.Models;
+﻿using HaikuRatingSystem.Models;
 using HaikuRatingSystem.Services.Enums;
 using HaikuRatingSystem.Services.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Web;
 using System.Web.Http;
 
 namespace HaikuRatingSystem.Services.Controllers
@@ -69,7 +67,7 @@ namespace HaikuRatingSystem.Services.Controllers
         }
 
         [HttpPost]
-        [Route("~/{username}/haikus")]
+        [Route("~/api/{username}/haikus")]
         public IHttpActionResult Post(string username, [FromBody]HaikuSimpleViewModel haiku)
         {
             if (!Request.Headers.Contains("PublishCode"))
@@ -120,7 +118,7 @@ namespace HaikuRatingSystem.Services.Controllers
         }
 
         [HttpDelete]
-        [Route("~/{username}/haikus/{id}")]
+        [Route("~/api/{username}/haikus/{id}")]
         public HttpResponseMessage Delete(string username, int id)
         {
             if (!Request.Headers.Contains("PublishCode"))
@@ -165,7 +163,7 @@ namespace HaikuRatingSystem.Services.Controllers
         }
 
         [HttpDelete]
-        [Route("~/{username}/haikus")]
+        [Route("~/api/{username}/haikus")]
         public HttpResponseMessage Delete(string username)
         {
             if (!Request.Headers.Contains("PublishCode"))
@@ -203,7 +201,7 @@ namespace HaikuRatingSystem.Services.Controllers
         }
 
         [HttpPut]
-        [Route("~/{username}/haikus/{id}")]
+        [Route("~/api/{username}/haikus/{id}")]
         public HttpResponseMessage Put(string username, int id, [FromBody]HaikuSimpleViewModel haiku)
         {
             if (!Request.Headers.Contains("PublishCode"))
