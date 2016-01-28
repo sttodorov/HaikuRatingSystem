@@ -6,12 +6,7 @@
         function get(url, queryParams) {
             var defered = $q.defer();
 
-            var authHeader = authorization.getAuthorizationHeader();
-            console.log("Request url: " + url);
-            console.log("Request params: ");
-            console.log(queryParams);
-
-            $http.get(baseServiceUrl + '/' + url, { params: queryParams, headers: authHeader })
+            $http.get(baseServiceUrl + '/' + url, { params: queryParams})
                 .then(function (response) {
                     defered.resolve(response.data);
                 }, function (error) {
@@ -23,10 +18,12 @@
             return defered.promise;
         }
 
-        function post(url, postData) {
+        function post(url, postData, askForCode) {
             var defered = $q.defer();
 
-            var authHeader = authorization.getAuthorizationHeader();
+            if (askForCode) {
+                var authHeader = authorization.getAuthorizationHeader();
+            }
 
             $http.post(baseServiceUrl + '/' + url, postData, { headers: authHeader })
                 .then(function (response) {
@@ -40,7 +37,6 @@
             return defered.promise;
         }
 
-        // TODO: Implement PUT and DELETE, auth required for both
         function put() {
             var authHeader = authorization.getAuthorizationHeader();
 
@@ -53,15 +49,7 @@
         }
 
         function getErrorMessage(response) {
-            var error = response.data.modelState;
-            if (error && error[Object.keys(error)[0]][0]) {
-                error = error[Object.keys(error)[0]][0];
-            }
-            else {
-                error = response.data.message;
-            }
-
-            return error;
+            return response.data.Message;
         }
 
         return {

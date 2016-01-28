@@ -4,6 +4,7 @@
 /// <reference path="../js/common/notifier.js" />
 /// <reference path="../js/haikus/all-haikus-directive.js" />
 /// <reference path="../js/haikus/haikus-controller.js" />
+/// <reference path="../js/haikus/publishhaikus-controller.js" />
 /// <reference path="../js/home/home-controller.js" />
 /// <reference path="../js/identity/authorization.js" />
 /// <reference path="../js/identity/auth-service.js" />

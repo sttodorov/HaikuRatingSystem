@@ -7,8 +7,13 @@
             return data.get('api/haikus', filters);
         };
 
+        function publishHaiku(username, haiku) {
+            return data.post('api/' + username + '/haikus', haiku, true);
+        }
+
         return {
-            getHaikus: getHaikus
+            getHaikus: getHaikus,
+            publishHaiku: publishHaiku
         };
     };
 

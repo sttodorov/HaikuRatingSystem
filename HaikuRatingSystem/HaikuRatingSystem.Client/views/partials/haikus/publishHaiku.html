@@ -1,0 +1,20 @@
+﻿<div class="container">
+    <div class="well">
+        <form name="publishHaikuForm" class="form-horizontal">
+            <fieldset>
+                <legend>Publish haiku</legend>
+                <div class="form-group">
+                    <label for="username" class="col-md-2 control-label">Content:</label>
+                    <div class="col-md-10">
+                        <textarea id="username" type="text" placeholder="Haiku content" ng-model="haiku.Text" required="required" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="pull-right">
+                    <button ng-click="vm.publishHaiku(haiku)" ng-disabled="publishHaikuForm.$invalid" class="btn btn-primary">
+                        Register
+                    </button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

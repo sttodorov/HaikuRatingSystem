@@ -34,6 +34,11 @@
                 controller: 'UserViewModel',
                 controllerAs: CONTROLLER_AS_VIEW_MODEL
             })
+            .when('/:username/haikus', {
+                templateUrl: PARTIALS_PREFIX + 'haikus/publishHaiku.html',
+                controller: 'HaikusPublishController',
+                controllerAs: CONTROLLER_AS_VIEW_MODEL
+            })
             .otherwise({ redirectTo: '/' });
     }
 

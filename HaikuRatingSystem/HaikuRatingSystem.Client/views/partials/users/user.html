@@ -1,13 +1,13 @@
 ﻿<div class="container">
     <h2 class="text-center">
-        User: {{vm.user.UserName}} Rating: {{vm.user.Rating}}
+        User: {{vm.user.Username}} Rating: {{vm.user.Rating}}
     </h2>
 
+    <a href="/{{vm.user.Username}}/haikus" class="btn btn-success center-block">Publish</a>
     <br />
     <h3>Haikus</h3>
-
     <div class="panel-group" id="accordion">
-        
+
         <div ng-repeat="haiku in vm.user.Haikus" class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title">
@@ -17,7 +17,7 @@
             <div id="collapse{{haiku.Id}}" class="panel-collapse collapse in">
                 <div class="panel-body">
                     <b>Rating: {{haiku.Rating}}</b>
-                    <br/>
+                    <br />
                     Content: {{haiku.Text}}
                 </div>
             </div>
