@@ -43,7 +43,20 @@ namespace HaikuRatingSystem.Services.Controllers
                 }
             }
 
-            return Ok(sortedHaikus.Skip((page-1)*take).Take(take).ToList());
+            return Ok(sortedHaikus.Skip((page - 1) * take).Take(take).ToList());
+        }
+
+        [HttpGet]
+        [Route("{id}")]
+        public IHttpActionResult Get(int id)
+        {
+            var selectedHaiku = this.data.Haikus.GetById(id);
+            if (selectedHaiku == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(HaikuViewModel.FromHaikuModel(selectedHaiku));
         }
 
         [HttpGet]
@@ -63,7 +76,7 @@ namespace HaikuRatingSystem.Services.Controllers
 
             var reported = this.data.Haikus.All().Where(h => h.IsReported).OrderBy(h => h.DateReported).Select(HaikuViewModel.FromHaiku);
 
-            return Ok(reported.Skip((page-1)*take).Take(take).ToList());
+            return Ok(reported.Skip((page - 1) * take).Take(take).ToList());
         }
 
         [HttpPost]
@@ -76,6 +89,11 @@ namespace HaikuRatingSystem.Services.Controllers
             }
 
             string auth = Request.Headers.GetValues("PublishCode").FirstOrDefault();
+            if (!HaikuSimpleViewModel.IsValid(haiku))
+            {
+                return BadRequest("Haiku is not valid!");
+            }
+
             var currentUser = GetUser(username);
 
             if (currentUser == null || !IsAuthValud(currentUser.UserId, auth))
@@ -98,13 +116,13 @@ namespace HaikuRatingSystem.Services.Controllers
         [Route("{id}")]
         public IHttpActionResult Post(int id, [FromBody]RatingViewModel rating)
         {
-            if (!rating.IsValid())
+            if (!RatingViewModel.IsValid(rating))
             {
                 return BadRequest("Rating is not valid");
             }
 
             var selectedHaiku = this.data.Haikus.GetById(id);
-            if(selectedHaiku == null)
+            if (selectedHaiku == null)
             {
                 return BadRequest("Hakiu with selected id was not found!");
             }
@@ -178,7 +196,7 @@ namespace HaikuRatingSystem.Services.Controllers
             {
                 return new HttpResponseMessage(System.Net.HttpStatusCode.BadRequest) { Content = new StringContent("User is not correct!") };
             }
-            if(!IsAdminAuth(auth))
+            if (!IsAdminAuth(auth) && !IsAuthValud(currentUser.UserId, auth))
             {
                 return new HttpResponseMessage(System.Net.HttpStatusCode.Unauthorized) { Content = new StringContent("Publish code is not correct!") };
             }
@@ -216,12 +234,12 @@ namespace HaikuRatingSystem.Services.Controllers
             {
                 return new HttpResponseMessage(System.Net.HttpStatusCode.BadRequest) { Content = new StringContent("User or publish code are not correct!") };
             }
-            if (!haiku.IsValid())
+            if (!HaikuSimpleViewModel.IsValid(haiku))
             {
                 return new HttpResponseMessage(System.Net.HttpStatusCode.BadRequest) { Content = new StringContent("Haiku is not valid!") };
             }
             var selectedHaiku = this.data.Haikus.GetById(id);
-            if(selectedHaiku ==null)
+            if (selectedHaiku == null)
             {
                 return new HttpResponseMessage(System.Net.HttpStatusCode.BadRequest) { Content = new StringContent("Haiku with selected ID was not found!") };
             }

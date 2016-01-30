@@ -14,9 +14,9 @@
             };
         }
 
-        public bool IsValid()
+        public static bool IsValid(RatingViewModel rating)
         {
-            return this.RatingValue > 0 && this.RatingValue < 6;
+            return rating.RatingValue > 0 && rating.RatingValue < 6;
         }
     }
 }

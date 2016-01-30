@@ -31,5 +31,16 @@ namespace HaikuRatingSystem.Services.Models
                 };
             }
         }
+        public static HaikuViewModel FromHaikuModel(Haiku h)
+        {
+            return new HaikuViewModel
+            {
+                Id = h.HaikuId,
+                AuthorName = h.Author.Username,
+                Text = h.Text,
+                DatePublished = h.DatePublished,
+                Rating = !h.Ratings.Any() ? 0 : h.Ratings.Average(r => r.RatingValue)
+            };
+        }
     }
 }

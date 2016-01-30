@@ -4,9 +4,9 @@
     {
         public string Text { get; set; }
         
-        public bool IsValid()
+        public static bool IsValid(HaikuSimpleViewModel haiku)
         {
-            return this.Text.Length > 3 && this.Text.Length < 101;
+            return haiku.Text.Length > 3 && haiku.Text.Length < 101;
         }
     }
 }
