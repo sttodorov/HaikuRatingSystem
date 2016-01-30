@@ -19,12 +19,16 @@
         function deleteUser(username) {
             return data.deleteData('api/users/' + username);
         };
+        function deleteAllHaikus(username) {
+            return data.deleteData('api/' + username + '/haikus');
+        };
 
         return {
             getUsers: getUsers,
             getUser: getUser,
             deleteUser: deleteUser,
-            promoteUser: promoteUser
+            promoteUser: promoteUser,
+            deleteAllHaikus: deleteAllHaikus
         }
     }
 

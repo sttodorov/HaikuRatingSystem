@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    function UserViewModel(usersService, $routeParams, $location) {
+    function UserViewModel(usersService, $routeParams, $location, $route) {
         var vm = this;
 
         vm.getUser = function (username) {
@@ -9,7 +9,7 @@
         }
         vm.promoteUser = function () {
             usersService.promoteUser(vm.user.Username).then(function (data) {
-                $location.path(/users);
+                $location.path("/users");
             });
         };
         vm.deleteUser = function () {
@@ -17,9 +17,15 @@
                 $location.path('/users');
             });
         };
+        vm.deleteAllHaikus = function () {
+            usersService.deleteAllHaikus(vm.user.Username).then(function (data) {
+                $route.reload();
+            });
+        };
+
         vm.getUser($routeParams.username);
     }
 
     angular.module('HaikusRatingSystem.controllers')
-        .controller('UserViewModel', ['UsersService', '$routeParams', '$location', UserViewModel]);
+        .controller('UserViewModel', ['UsersService', '$routeParams', '$location', '$route', UserViewModel]);
 }());

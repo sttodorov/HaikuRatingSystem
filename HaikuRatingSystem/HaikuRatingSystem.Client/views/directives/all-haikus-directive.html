@@ -9,7 +9,7 @@
     </tr>
     <tr ng-repeat="haiku in vm.haikus" ng-class-even="'even-class'" ng-class-odd="'odd-class'">
         <td class="text-center">
-            {{haiku.Text}}
+            <a href="haikus/{{haiku.Id}}">{{haiku.Text}}</a>
         </td>
         <td class="text-center">
             {{haiku.Rating}}

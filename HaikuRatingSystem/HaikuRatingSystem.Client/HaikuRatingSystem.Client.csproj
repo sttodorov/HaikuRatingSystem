@@ -68,6 +68,7 @@
   <ItemGroup>
     <Content Include="js\common\data.js" />
     <Content Include="js\haikus\all-haikus-directive.js" />
+    <Content Include="js\haikus\haiku-details-controller.js" />
     <Content Include="js\haikus\publishHaikus-controller.js" />
     <Content Include="js\users\user-viewmodel.js" />
     <Content Include="js\users\users-controller.js" />
@@ -118,6 +119,7 @@
     <None Include="scripts\_references.js" />
     <Content Include="views\directives\all-haikus-directive.html" />
     <Content Include="views\directives\all-users-directive.html" />
+    <Content Include="views\partials\haikus\haikuDetails.html" />
     <Content Include="views\partials\haikus\publishHaiku.html" />
     <Content Include="views\partials\haikus\haikus.html" />
     <Content Include="views\partials\home\home.html" />

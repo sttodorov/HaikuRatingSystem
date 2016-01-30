@@ -24,6 +24,11 @@
                 controller: 'HaikusController',
                 controllerAs: CONTROLLER_AS_VIEW_MODEL
             })
+            .when('/haikus/:id', {
+                templateUrl: PARTIALS_PREFIX + 'haikus/haikuDetails.html',
+                controller: 'HaikuDetailsController',
+                controllerAs: CONTROLLER_AS_VIEW_MODEL
+            })
             .when('/users', {
                 templateUrl: PARTIALS_PREFIX + 'users/users.html',
                 controller: 'UsersController',

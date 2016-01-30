@@ -3,10 +3,11 @@
         User: {{vm.user.Username}} Rating: {{vm.user.Rating}}
     </h2>
 
-    <a href="/{{vm.user.Username}}/haikus" class="btn btn-success center-block">Publish</a>
+    <a href="/{{vm.user.Username}}/haikus" class="btn btn-success">Publish</a>
 
     <button ng-click="vm.promoteUser()" class="btn btn-info" >Promote</button>
-    <button ng-click="vm.deleteUser()" class="btn btn-danger">Delete</button>
+    <button ng-click="vm.deleteAllHaikus()" class="btn btn-danger">Delete haikus</button>
+    <button ng-click="vm.deleteUser()" class="btn btn-danger">Erease user</button>
     
     <br />
     <h3>Haikus</h3>
@@ -22,7 +23,7 @@
                 <div class="panel-body">
                     <b>Rating: {{haiku.Rating}}</b>
                     <br />
-                    Content: {{haiku.Text}}
+                    Content: <a href="/haikus/{{haiku.Id}}">{{haiku.Text}}</a>
                 </div>
             </div>
         </div>

@@ -1,0 +1,38 @@
+﻿<div class="container">
+    <h2 class="text-center">
+        Author: <a href="/users/{{vm.haiku.AuthorName}}">{{vm.haiku.AuthorName}}</a>
+    </h2>
+
+    <br />
+    <div class="form-horizontal col-lg-5">
+
+        <div class="form-group">Rating: {{vm.haiku.Rating}}</div>
+        <div class="form-group">Date published: {{vm.haiku.DatePublished}}</div>
+
+        <div class="form-group" >
+            Text:
+            <textarea ng-model="vm.haiku.Text" class="col-lg-12"></textarea>
+        </div>
+
+        <div class="form-group">
+            <button ng-click="vm.editHaiku()" class="btn btn-warning">Edit</button>
+        </div>
+
+        <div class="form-group">
+            <select ng-model="vm.rating" class="form-control">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <button ng-click="vm.rateHaiku()" class="btn btn-success">Rate</button>
+        </div>
+        <div class="form-group">
+            <button ng-click="vm.deleteHaiku()" class="btn btn-danger">Delete</button>
+        </div>
+    </div>
+
+</div>
