@@ -24,6 +24,11 @@
                 $location.path('/haikus');
             });
         }
+        vm.reportHaiku = function () {
+            haikusService.reportHaiku(vm.haiku.Id).then(function (data) {
+                $location.path('/haikus');
+            });
+        }
 
         vm.getHaiku($routeParams.id);
     }

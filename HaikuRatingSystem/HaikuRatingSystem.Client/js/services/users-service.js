@@ -13,7 +13,7 @@
 
         function promoteUser(username) {
             console.log("Promoting " + username);
-            return data.put('api/users/promote/' + username, username);
+            return data.put('api/users/promote/' + username, username, true);
         };
 
         function deleteUser(username) {

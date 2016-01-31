@@ -1,35 +1,9 @@
 ﻿<div class="container">
     <h2 class="text-center">
-        Users
+        Reported Haikus
     </h2>
 
     <div class="row">
-        <div class="col-md-3">
-            <div class="form-group">
-                <div class="text-center">
-                    <label for="sort" class="control-label">Sort by</label>
-                </div>
-                <div class="text-center">
-                    <select class="form-control" required="required" ng-init="vm.request.sortby='date'" ng-model="vm.request.sortby" id="sort">
-                        <option value="date">Username</option>
-                        <option value="rating">Rating</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="form-group">
-                <div class="text-center">
-                    <label for="type" class="control-label">Sort type</label>
-                </div>
-                <div class="text-center">
-                    <select class="form-control" required="required" ng-init="vm.request.sorttype='ascending'" ng-model="vm.request.sorttype" id="type">
-                        <option value="ascending">Ascending</option>
-                        <option value="descending">Descending</option>
-                    </select>
-                </div>
-            </div>
-        </div>
         <div class="col-md-3">
             <div class="form-group">
                 <div class="text-center">
@@ -60,16 +34,16 @@
 
     <div class="row">
         <div class="col-md-1">
-                <button class="btn btn-primary pull-right" ng-click="vm.filterUsers()">Filter</button>
+            <button class="btn btn-primary pull-right" ng-click="vm.filterHaikus()">Filter</button>
         </div>
     </div>
 
     <br />
 
-    <div ng-show="vm.users && vm.users.length > 0">
-        <div all-users/>
+    <div ng-show="vm.haikus && vm.haikus.length > 0">
+        <div all-haikus />
     </div>
-    <div ng-hide="vm.users && vm.users.length > 0">
+    <div ng-hide="vm.haikus && vm.haikus.length > 0">
         <h2 class="text-center">No results!</h2>
     </div>
 </div>

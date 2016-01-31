@@ -3,10 +3,14 @@
 
     function data($http, $q, authorization, notifier, baseServiceUrl) {
 
-        function get(url, queryParams) {
+        function get(url, queryParams, askForCode) {
             var defered = $q.defer();
 
-            $http.get(baseServiceUrl + '/' + url, { params: queryParams })
+            if (!!askForCode) {
+                var authHeader = authorization.getAuthorizationHeader();
+            }
+
+            $http.get(baseServiceUrl + '/' + url, { params: queryParams, headers: authHeader })
                 .then(function (response) {
                     defered.resolve(response.data);
                 }, function (error) {
@@ -21,7 +25,7 @@
         function post(url, postData, askForCode) {
             var defered = $q.defer();
 
-            if (askForCode) {
+            if (!!askForCode) {
                 var authHeader = authorization.getAuthorizationHeader();
             }
 
@@ -37,9 +41,12 @@
             return defered.promise;
         }
 
-        function put(url, putData) {
+        function put(url, putData, askForCode) {
             var defered = $q.defer();
-            var authHeader = authorization.getAuthorizationHeader();
+
+            if (!!askForCode) {
+                var authHeader = authorization.getAuthorizationHeader();
+            }
 
             $http.put(baseServiceUrl + '/' + url, putData, { headers: authHeader })
                  .then(function (response) {
